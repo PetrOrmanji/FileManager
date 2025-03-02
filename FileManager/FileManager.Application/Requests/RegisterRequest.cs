@@ -1,4 +1,4 @@
-﻿namespace FileManager.Domain.Requests;
+﻿namespace FileManager.Application.Requests;
 
 public record RegisterRequest(
     string Login,

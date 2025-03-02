@@ -9,11 +9,11 @@ namespace FileManager.Infrastructure.Authentication;
 
 public class JwtHelper
 {
-    public static string GenerateJwtToken(string userLogin, IOptions<JwtOptions> options)
+    public static string GenerateJwtToken(string userLogin, string userId, IOptions<JwtOptions> options)
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(options.Value.SecretKey!));
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-        var claims = new List<Claim> { new(ClaimTypes.Name, userLogin) };
+        var claims = new List<Claim> { new("UserLogin", userLogin), new("UserId", userId) };
 
         var token = new JwtSecurityToken(
             options.Value.Issuer,

@@ -8,8 +8,7 @@ public class FileManagerUserRepository(FileManagerContext fileManagerContext) : 
 {
     public Task<FileManagerUser?> GetAsync(string login)
     {
-        return FileManagerContext.Users
-            .FirstOrDefaultAsync(user => user.Login == login);
+        return FileManagerContext.Users.FirstOrDefaultAsync(user => user.Login == login);
     }
 
     public async Task AddAsync(FileManagerUser fileManagerUser)

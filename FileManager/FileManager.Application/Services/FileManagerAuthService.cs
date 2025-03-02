@@ -26,7 +26,7 @@ public class FileManagerAuthService
         if (user == null || user.PasswordHash != CryptoHelper.HashPassword(password))
             return null;
 
-        return JwtHelper.GenerateJwtToken(login, _jwtOptions);
+        return JwtHelper.GenerateJwtToken(login, user.Id.ToString(), _jwtOptions);
     }
 
     public async Task<bool> RegisterAsync(string login, string password)

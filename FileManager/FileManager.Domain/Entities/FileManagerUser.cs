@@ -2,6 +2,6 @@
 
 public class FileManagerUser : EntityBase
 {
-    public string Login { get; set; } = string.Empty;
-    public string PasswordHash { get; set; } = string.Empty;
+    public required string Login { get; set; }
+    public required string PasswordHash { get; set; }
 }

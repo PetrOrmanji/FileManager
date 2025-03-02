@@ -104,5 +104,6 @@ public static class ServiceCollectionExtensions
             options.UseSqlServer(configuration["DbConnectionString"]));
 
         services.AddScoped<FileManagerUserRepository>();
+        services.AddScoped<FileManagerRepository>();
     }
 }

@@ -11,8 +11,11 @@ builder.Services.AddJwtOptions(builder.Configuration);
 builder.Services.AddDb(builder.Configuration);
 builder.Services.AddApiAuthentication(builder.Configuration);
 builder.Services.AddAuthService();
+builder.Services.AddUserContextService();
+builder.Services.AddFileManagerService();
 builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddSwagger();
+builder.Services.AddMapperProfiles();
 
 var app = builder.Build();
 
@@ -22,6 +25,8 @@ app.UseSwaggerUI(options =>
     options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
     options.RoutePrefix = string.Empty;
 });
+
+app.UseExceptionHandler();
 
 app.UseAuthentication();
 app.UseAuthorization();
